@@ -1,7 +1,10 @@
+import { index } from '/index.js';
 
 export const stageTwo = {
   exec({ message }) {
     if (message === '1') {
+      index.lancaVisita('poa', 'promocao', '1234')
+
       return '🔃 Clique no link para falar com o vendedor desejado: \n\n  Diana: - https://wa.me/5551984078045 \n  Daisson: - https://wa.me/5551999957331 \n';
     } else if (message === '2') {
       return '🔃 Clique no link para falar com o responsável financeiro: \n\n  Renogociação: - https://wa.me/5551 \n  Diversos: - https://wa.me/5551 \n';
