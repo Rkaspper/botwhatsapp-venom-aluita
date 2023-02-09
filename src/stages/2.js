@@ -1,3 +1,7 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+
 const Client = require('pg').Client
 
 const cliente = new Client({
@@ -13,7 +17,7 @@ async function lancaVisita(loja, promocao, numero){
     console.log("Iniciando a conexão.") 
     await cliente.connect()
     console.log("Conexão bem sucedida!") 
-    await cliente.query('insert into visita_chatbot("data", "loja", "promocao", "numero") values ('+"'"+now()+"', '"+loja+"', '"+promocao+"', '"+numero+"'); ")
+    await cliente.query('insert into visita_chatbot("data", "loja", "promocao", "numero") values ('+"'now()', '"+loja+"', '"+promocao+"', '"+numero+"'); ")
     console.log("Valor inserido na tabela") 
   }
   catch (ex){
