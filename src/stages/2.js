@@ -1,4 +1,5 @@
 import { createRequire } from 'module';
+import { retornaPromocao  } from './0.js';
 const require = createRequire(import.meta.url);
 
 
@@ -27,9 +28,10 @@ async function lancaVisita(loja, promocao, numero){
 }
 
 export const stageTwo = {
-  exec({ message }) {
+  exec({ message, from }) {
     if (message === '1') {
-      lancaVisita('poa', 'promocao', '1234')
+      let promocao = retornaPromocao();
+      lancaVisita('Porto Alegre', promocao, from)
 
       return '🔃 Clique no link para falar com o vendedor desejado: \n\n  Diana: - https://wa.me/5551984078045 \n  Daisson: - https://wa.me/5551999957331 \n';
     } else if (message === '2') {
